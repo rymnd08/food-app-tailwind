@@ -1,0 +1,12 @@
+<app-nav></app-nav>
+
+<!-- main content -->
+<div class="max-w-5xl mx-auto">
+    <app-food-search></app-food-search>
+    <div class="grid lg:grid-cols-2 gap-10">
+        @for (food of foods; track food.id) {
+            <app-card></app-card>
+        }
+    </div>
+</div>
+<app-footer></app-footer>
