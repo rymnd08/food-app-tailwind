@@ -1,20 +1,25 @@
-<div class="border flex p-4 gap-2 hover:border-l-[10px] hover:border-l-slate-700 bg-slate-200 mb-4">
-    <img src="https://random.imagecdn.app/v1/image?width=200&height=200" alt="">
+<div class="border flex p-4 gap-2 hover:border-l-[10px] hover:border-l-slate-700 bg-slate-200 mb-4 relative z-20">
+    <ng-content select="[foodImg]"></ng-content>
     <div class="relative w-full flex flex-col justify-center gap-3">
         <h4 class="font-bold text-lg">
-            Food name
+            <ng-content select="[foodName]"></ng-content>
         </h4>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe, vitae!</p>
+        <p>
+            <ng-content select="[foodDescription]"></ng-content>
+        </p>
 
         <div class="flex gap-2">
-            <button class="px-3 border rounded-full"><i class="bi bi-geo-alt-fill"></i></button>
-            <button class="px-3 border rounded-full">4.4 <i class="bi bi-star-fill"></i></button>
-            <button class="px-3 border rounded-full grow">Order Now</button>
+            <button class="px-2 py-1 border rounded-full bg-white hover:scale-110"><i class="bi bi-geo-alt-fill"></i></button>
+            <button class="px-2 py-1 border rounded-full bg-white hover:scale-110 "> 
+                <ng-content select="[foodRating]"></ng-content> 
+            <i class="bi bi-star-fill"></i></button>
+            <button class="px-3 py-1 bg-white shadow-md rounded-full grow hover:scale-110">Order Now</button>
         </div>
 
-        <div class="absolute right-0 top-0 m-4 font-semibold text-4xl">
-            {{30 | currency: "USD"}} 
-        </div>
+
+    </div>
+    <div class="absolute right-0 top-0 m-4 font-semibold text-xl">
+        <ng-content select="[price]"></ng-content>
     </div>
 </div>
 

@@ -3,9 +3,15 @@
 <!-- main content -->
 <div class="max-w-5xl mx-auto">
     <app-food-search></app-food-search>
-    <div class="grid lg:grid-cols-2 gap-10">
+    <div class="grid lg:grid-cols-2 gap-8 mx-2 md:mx-0">
         @for (food of foods; track food.id) {
-            <app-card></app-card>
+            <app-card>
+                <div price>{{food.price | currency: "USD"}} </div>
+                <div foodName> {{food.name}} </div>
+                <div foodDescription> {{food.description}} </div>
+                <span foodRating> {{food.rating}} </span>
+                <img src="{{food.src}}" alt="" foodImg class="w-[200px] h-[200px] object-cover">
+            </app-card>
         }
     </div>
 </div>
